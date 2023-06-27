@@ -1,7 +1,7 @@
 // import ExpenseItem from "./components/ExpenseItem";
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
 
-function App() {
+const App = () => {
   // 아래 배열 expenses의 객체들의 데이터를 다른 expenseItem에 전달하고 싶어!
   // == ExpenseItem을 외부로부터 설정할 수 있도록 하고 싶다는 말.
 
