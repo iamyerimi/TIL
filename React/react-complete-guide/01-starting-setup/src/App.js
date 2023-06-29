@@ -28,13 +28,16 @@ const App = () => {
     },
   ];
 
+  const addExpenseData = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
   return (
     <div>
-      <NewExpense />
-      <Expenses items={expenses}/>
-     
+      <NewExpense onAddExpense={addExpenseData}/>
+      <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;

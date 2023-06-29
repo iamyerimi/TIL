@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState(""); 
   const [enteredDate, setEnteredDate] = useState("");
@@ -47,7 +47,8 @@ const ExpenseForm = () => {
       date: new Date(enteredDate), // 문자열로 되어있는 날짜를 날짜 객체로 변환해서 전달.
     };
 
-    console.log(expenseData);
+    // console.log(expenseData);
+    props.onSaveExpenseData(expenseData);
 
     // 폼 전송 후 입력값 초기화 (value 초기화)
     setEnteredTitle("");
