@@ -3,9 +3,9 @@ import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
   const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState(""); 
   const [enteredDate, setEnteredDate] = useState("");
-
+  
   // 상태 업데이트가 이전 상태에 의존하고 있다면 이 방법을 사용하슈
   //   const [userInput, setUserInput] = useState({
   //     enteredTitle: "",
