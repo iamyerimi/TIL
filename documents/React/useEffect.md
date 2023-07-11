@@ -5,7 +5,7 @@
 - 콜백 함수를 특정 시점에 호출하여 작업을 수행하고, 필요에 따라 정리(clean-up) 함수를 반환할 수 있다.
 
 ### 사용법
-```javascript
+```javascript 
 useEffect(()=>{}, [])
 ```
 - useEffect 함수는 두 개의 인자를 받는다: `콜백 함수`와 `의존성 배열(dependency array)`.
