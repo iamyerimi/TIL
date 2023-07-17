@@ -24,10 +24,9 @@ const ingredientReducer = (currentIngredients, action) => {
 const Ingredients = () => {
   // useReducer로 상태를 초기화함.
   const [userIngredients, dispatch] = useReducer(ingredientReducer, []);
-  const {isLoading, error, data, sendRequest} = useHttp();
+  const { isLoading, error, data, sendRequest } = useHttp();
 
   // const [userIngredients, setUserIngredients] = useState([]);
-
 
   //로딩 스피너 만들기
   // const [isLoading, setIsLoading] = useState(false);
@@ -97,12 +96,17 @@ const Ingredients = () => {
       });
   };
   // ingredient 삭제
-  const removeIngredientHandler = (ingredientId) => {
-    // setIsLoading(true);
-    // dispatchHttp({ type: "SEND" });
-    sendRequest(`https://react-hooks-update-2e63e-default-rtdb.firebaseio.com/ingredients/${ingredientId}.json`, 'DELETE')
-    
-  };
+  const removeIngredientHandler = useCallback(
+    (ingredientId) => {
+      // setIsLoading(true);
+      // dispatchHttp({ type: "SEND" });
+      sendRequest(
+        `https://react-hooks-update-2e63e-default-rtdb.firebaseio.com/ingredients/${ingredientId}.json`,
+        "DELETE"
+      );
+    },
+    [sendRequest]
+  );
 
   // 에러 처리
   const clearError = () => {
@@ -111,9 +115,7 @@ const Ingredients = () => {
   };
   return (
     <div className="App">
-      {error && (
-        <ErrorModal onClose={clearError}>{error}</ErrorModal>
-      )}
+      {error && <ErrorModal onClose={clearError}>{error}</ErrorModal>}
       <IngredientForm
         onAddIngredient={addIngredientHandler}
         loading={isLoading}
